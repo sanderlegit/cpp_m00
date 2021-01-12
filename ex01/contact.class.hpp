@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/12 11:45:48 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/12 12:27:04 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/12 14:25:42 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ class Contact {
 		void	writeContact(void);
 		void	clearContact(void);
 		void	getContact(void);
-		void	getNames(void);
+		void	getIndex(void);
+		int		isEmpty(void);
 	private:
 		int		_isEmpty = 1;
 		char	_firstName[256] = { };
@@ -38,6 +39,7 @@ class Contact {
 		char	_darkestSecret[256] = { };
 
 		void	_clearField(char *field);
+		void	_printIndexField(char *value);
 };
 
 #endif

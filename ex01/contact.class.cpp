@@ -6,11 +6,12 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/12 11:45:45 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/12 12:27:58 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/12 14:57:18 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.class.hpp"
+#include <cstring>
 
 Contact::Contact(void) {
 	return;
@@ -61,37 +62,69 @@ void	Contact::clearContact(void) {
 	this->_clearField(this->_underwearColor);
 	this->_clearField(this->_darkestSecret);
 	this->_isEmpty = 1;
+	return;
 }
 
 void	Contact::getContact(void) {
 	if (this->_isEmpty == 0) {
-		std::cout << "First Name: " << this->_firstName << std::endl;
-		std::cout << "Last Name: " << this->_lastName << std::endl;
-		std::cout << "Nickname: " << this->_nickname << std::endl;
-		std::cout << "Login: " << this->_login << std::endl;
-		std::cout << "Postal Address: " << this->_postalAddress << std::endl;
-		std::cout << "Email Address: " << this->_emailAddress << std::endl;
-		std::cout << "Phone Number: " << this->_phoneNumber << std::endl;
-		std::cout << "Birthday Date: " << this->_birthdayDate << std::endl;
-		std::cout << "Favorite Meal: " << this->_favoriteMeal << std::endl;
-		std::cout << "Underwear Color: " << this->_underwearColor << std::endl;
-		std::cout << "Darkest Secret: " << this->_darkestSecret << std::endl;
+		std::cout << "First Name:	" << this->_firstName << std::endl;
+		std::cout << "Last Name:	" << this->_lastName << std::endl;
+		std::cout << "Nickname:	" << this->_nickname << std::endl;
+		std::cout << "Login:		" << this->_login << std::endl;
+		std::cout << "Postal Address:	" << this->_postalAddress << std::endl;
+		std::cout << "Email Address:	" << this->_emailAddress << std::endl;
+		std::cout << "Phone Number:	" << this->_phoneNumber << std::endl;
+		std::cout << "Birthday Date:	" << this->_birthdayDate << std::endl;
+		std::cout << "Favorite Meal:	" << this->_favoriteMeal << std::endl;
+		std::cout << "Underwear Color:" << this->_underwearColor << std::endl;
+		std::cout << "Darkest Secret:	" << this->_darkestSecret << std::endl;
 	} else {
 		std::cout << "This Contact memory is empty." << std::endl;
 	}
+	return;
 }
 
-void	Contact::getNames(void) {
+void	Contact::getIndex(void) {
 	if (this->_isEmpty == 0) {
-		std::cout << this->_firstName << "\t" << this->_lastName << "\t" << this->_nickname << std::endl;
+		this->_printIndexField(this->_firstName);
+		this->_printIndexField(this->_lastName);
+		this->_printIndexField(this->_nickname);
+		std::cout << std::endl;
 	} else {
-		std::cout << "This Contact memory is empty." << std::endl;
+		std::cout << "This Contact memory slot is empty." << std::endl;
 	}
+	return;
+}
+
+void	Contact::_printIndexField(char *value) {
+	char	buff[11];
+	int		len;
+	int		offset;
+	int		dot = 0;
+
+	memset(buff, 32, 10);
+	buff[10] = '\0';
+	len = strlen(value);
+	if (len > 10) {
+		len = 10;
+		dot = 1;
+	}
+	offset = 10 - len;
+	for (int i = 0; i < len; i++) {
+		buff[i + offset] = value[i];
+	}
+	if (dot)
+		buff[9] = '.';
+	std::cout << buff << "|";
 }
 
 
 void	Contact::_clearField(char *field) {
-	for(int i = 0; i < 256; i++)
+	for (int i = 0; i < 256; i++)
 		field[i] = 0;
 	return;
+}
+
+int		Contact::isEmpty(void) {
+	return this->_isEmpty;
 }

@@ -6,7 +6,7 @@
 #    By: averheij <averheij@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/01/11 15:02:04 by averheij      #+#    #+#                  #
-#    Updated: 2021/01/12 12:09:46 by averheij      ########   odam.nl          #
+#    Updated: 2021/01/12 14:48:59 by averheij      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ FLAGS		=	-Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME): $(OBJDIR) $(OFILES)
-	export BINARY=$(NAME)
 	$(CC) $(FLAGS) -o $(NAME) $(OFILES)
 
 $(OBJDIR):

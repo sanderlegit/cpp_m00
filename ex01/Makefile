@@ -6,7 +6,7 @@
 #    By: averheij <averheij@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/01/11 15:02:04 by averheij      #+#    #+#                  #
-#    Updated: 2021/01/12 14:48:59 by averheij      ########   odam.nl          #
+#    Updated: 2021/01/22 13:01:26 by averheij      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ ifeq ($(OS),Linux)
 else
 	CC		=	clang++
 endif
-FLAGS		=	-Wall -Werror -Wextra
+FLAGS		=	-Wall -Werror -Wextra -std=c++98 -pedantic
 
 all: $(NAME)
 
@@ -31,14 +31,14 @@ $(OBJDIR):
 	mkdir $(OBJDIR)
 
 $(OBJDIR)/%.o: %.cpp
-	$(CC) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm $(OFILES)
+	rm -f $(OFILES)
 
 fclean: clean
 	rm -rf $(OBJDIR)
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/12 11:45:45 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/12 14:57:18 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/22 13:03:59 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 #include <cstring>
 
 Contact::Contact(void) {
+	_isEmpty = 1;
+	_clearField(_firstName);
+	_clearField(_lastName);
+	_clearField(_nickname);
+	_clearField(_login);
+	_clearField(_postalAddress);
+	_clearField(_emailAddress);
+	_clearField(_phoneNumber);
+	_clearField(_birthdayDate);
+	_clearField(_favoriteMeal);
+	_clearField(_underwearColor);
+	_clearField(_darkestSecret);
 	return;
 }
 

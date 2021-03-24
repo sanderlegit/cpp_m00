@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: averheij <averheij@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2021/01/11 15:02:04 by averheij      #+#    #+#                  #
-#    Updated: 2021/01/22 13:00:57 by averheij      ########   odam.nl          #
+#                                                        ..eeeee..             #
+#    Makefile                                          e8'   8   '8e           #
+#                                                     d8     8     8b          #
+#    By: dries <sanderlegit@gmail.com>                8!   .dWb.   !8          #
+#                                                     Y8 .e* 8 *e. 8P          #
+#    Created: 2021/03/24 17:20:50 by dries             *8*   8   *8*           #
+#    Updated: 2021/03/24 17:24:12 by dries               **ee8ee**             #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,11 @@ $(OBJDIR)/%.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm $(OFILES)
+	rm -f $(OFILES)
 
 fclean: clean
 	rm -rf $(OBJDIR)
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
